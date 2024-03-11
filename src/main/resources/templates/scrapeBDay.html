@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Scraping test</title>
+</head>
+<body>
+<h1>Scraping test</h1>
+<form action="/scrape" method="post">
+	<input type="text" name="name">
+	<input type="submit" value="Get birthday">
+</form>
+<p th:if="${bday}" th:text="|Birthday: ${bday}|"></p>
+<p th:if="${error}" th:text="${error}"></p>
+</body>
+</html>

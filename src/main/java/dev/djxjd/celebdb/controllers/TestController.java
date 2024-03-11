@@ -33,7 +33,10 @@ public class TestController {
 		}
 		Element bday = wikiPage.selectFirst(".bday");
 		if (bday == null) ra.addFlashAttribute("error", "Person could not be found");
-		else ra.addFlashAttribute("bday", LocalDate.parse(bday.text()).format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)));
+		else {
+			ra.addFlashAttribute("bday", LocalDate.parse(bday.text()).format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)));
+			ra.addFlashAttribute("image", wikiPage.selectFirst(".infobox-image img").attr("src"));
+		}
 		return "redirect:/";
 	}
 

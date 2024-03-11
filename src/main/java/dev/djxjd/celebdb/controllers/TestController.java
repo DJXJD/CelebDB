@@ -32,7 +32,7 @@ public class TestController {
 			e.printStackTrace();
 		}
 		Element bday = wikiPage.selectFirst(".bday");
-		if (bday == null) ra.addFlashAttribute("error", "Person could not be found");
+		if (bday == null) ra.addFlashAttribute("error", name + "'s birthday could not be found");
 		else {
 			ra.addFlashAttribute("bday", LocalDate.parse(bday.text()).format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)));
 			ra.addFlashAttribute("image", wikiPage.selectFirst(".infobox-image img").attr("src"));

@@ -36,6 +36,7 @@ public class TestController {
 		else {
 			ra.addFlashAttribute("bday", LocalDate.parse(bday.text()).format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)));
 			ra.addFlashAttribute("image", wikiPage.selectFirst(".infobox-image img").attr("src"));
+			ra.addFlashAttribute("name", wikiPage.selectFirst("h1 span").text());
 		}
 		return "redirect:/";
 	}
